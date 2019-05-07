@@ -1,0 +1,26 @@
+{
+    "workbench.statusBar.visible": true,
+    "workbench.activityBar.visible": true,
+    "workbench.sideBar.location": "left",
+    "editor.minimap.enabled": false,
+    "window.zoomLevel": 1,
+    "workbench.startupEditor": "newUntitledFile",
+    "files.autoSave": "onFocusChange",
+    "[ruby]": {
+        
+    },
+    "explorer.confirmDelete": false,
+    "editor.find.autoFindInSelection": true,
+
+    "workbench.iconTheme": "vscode-icons",
+    "editor.tabSize": 2,
+    "editor.fontSize": 17,
+    "workbench.colorTheme": "Monokai",
+    "vscode_custom_css.imports": [
+        "file:///Users/gs/synthwave84.css"
+    ],
+
+    
+    "editor.highlightActiveIndentGuide": true,
+    "editor.snippetSuggestions": "top"
+}
