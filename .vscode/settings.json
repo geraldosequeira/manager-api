@@ -15,7 +15,7 @@
     "workbench.iconTheme": "vscode-icons",
     "editor.tabSize": 2,
     "editor.fontSize": 17,
-    "workbench.colorTheme": "Monokai",
+    "workbench.colorTheme": "SynthWave '84",
     "vscode_custom_css.imports": [
         "file:///Users/gs/synthwave84.css"
     ],
