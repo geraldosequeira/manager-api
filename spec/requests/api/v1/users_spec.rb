@@ -78,7 +78,7 @@ RSpec.describe 'Users API', type: :request do
     context 'when the request parms are valid' do 
       let(:user_params) { { email: 'e-mail@email.org' } }
 
-      it 'return http status code OK' do 
+      it 'return http status code: OK' do 
         expect(response).to have_http_status(200)
       end
 
@@ -102,5 +102,19 @@ RSpec.describe 'Users API', type: :request do
     end
   end
 
-  
+  describe 'DELETE /users/:id' do
+    before do
+      headers = { Accept: 'application/vnd.taskmanager.v1' }
+      delete "/users/#{user_id}", params: {}, headers: headers
+    end
+    
+    it 'returns http status code: No Content' do 
+      expect(response).to have_http_status(204)
+    end
+
+    it 'No find user in database' do 
+      expect(User.find_by(id: user_id)).to be_nil
+    end
+  end
+
 end
