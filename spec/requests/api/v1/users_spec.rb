@@ -6,6 +6,7 @@ RSpec.describe 'Users API', type: :request do
   let(:headers) do
     {
       'Accept' => 'apllication/vnd.taskmanager.v1',
+      'Authorization' => "#{user.auth_token}",
       'Content-Type' => Mime[:json].to_s
     }
   end
@@ -74,15 +75,15 @@ RSpec.describe 'Users API', type: :request do
       put "/users/#{user_id}", params: { user: user_params }.to_json, headers: headers
     end
     
-    context 'when the request parms are valid' do 
+    context 'when the request parms are valid' do
       let(:user_params) { { email: 'e-mail@email.org' } }
-
-      it 'return http status code: OK' do 
-        expect(response).to have_http_status(200)
-      end
 
       it 'returns the json data for the updated user' do
         expect(json_body[:email]).to eq(user_params[:email]) 
+      end
+
+      it 'return http status code: OK' do 
+        expect(response).to have_http_status(200)
       end
     end
 
