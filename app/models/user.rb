@@ -4,7 +4,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   before_create :generate_authentication_token!
+
   validates_uniqueness_of :auth_token
+
+  has_many :tasks, dependent: :destroy
   
 
   def generate_authentication_token!
