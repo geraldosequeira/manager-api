@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Tasks API', type: :request do #HUAhuHUAhUHauHUahUHa
+RSpec.describe 'Tasks API', type: :request do
   
   before { host! 'api.taskmanager.test' }
 
@@ -9,7 +9,7 @@ RSpec.describe 'Tasks API', type: :request do #HUAhuHUAhUHauHUahUHa
   let(:headers) do 
     {
       'Content-Type' => Mime[:json].to_s,
-      'Accept' => 'apllication/vnd.taskmanager.v1',
+      'Accept' => 'application/vnd.taskmanager.v1',
       'Authorization' => user.auth_token
     }
   end

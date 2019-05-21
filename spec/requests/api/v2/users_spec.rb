@@ -5,7 +5,7 @@ RSpec.describe 'Users API', type: :request do
   let(:user_id) { user.id }
   let(:headers) do
     {
-      'Accept' => 'apllication/vnd.taskmanager.v2',
+      'Accept' => 'application/vnd.taskmanager.v2',
       'Authorization' => "#{user.auth_token}",
       'Content-Type' => Mime[:json].to_s
     }

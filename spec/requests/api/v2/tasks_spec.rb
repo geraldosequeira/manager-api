@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Tasks API', type: :request do #HUAhuHUAhUHauHUahUHa
+RSpec.describe 'Tasks API', type: :request do 
   
   before { host! 'api.taskmanager.test' }
 
@@ -9,7 +9,7 @@ RSpec.describe 'Tasks API', type: :request do #HUAhuHUAhUHauHUahUHa
   let(:headers) do 
     {
       'Content-Type' => Mime[:json].to_s,
-      'Accept' => 'apllication/vnd.taskmanager.v2',
+      'Accept' => 'application/vnd.taskmanager.v2',
       'Authorization' => user.auth_token
     }
   end
@@ -35,7 +35,7 @@ RSpec.describe 'Tasks API', type: :request do #HUAhuHUAhUHauHUahUHa
     before { get "/tasks/#{task.id}", params: {}, headers: headers }
     
     it 'returns the data json for task' do
-      expect(json_body[:title]).to eq(task.title)
+      expect(json_body[:data][:attributes][:title]).to eq(task.title)
     end
 
     it 'returns http status code: OK' do
@@ -56,11 +56,11 @@ RSpec.describe 'Tasks API', type: :request do #HUAhuHUAhUHauHUahUHa
       end
 
       it 'returns the json for created task' do 
-        expect(json_body[:title]).to eq(task_params[:title])
+        expect(json_body[:data][:attributes][:title]).to eq(task_params[:title])
       end
 
       it 'assigns the created task to the current user' do
-        expect(json_body[:user_id]).to eq(user.id)
+        expect(json_body[:data][:attributes][:"user-id"]).to eq(user.id)
       end
 
       it 'returns http status code: Created' do
@@ -99,7 +99,7 @@ RSpec.describe 'Tasks API', type: :request do #HUAhuHUAhUHauHUahUHa
       let(:task_params) { attributes_for(:task) }
 
       it 'return then json for updated task' do 
-        expect(json_body[:title]).to eq(task_params[:title])
+        expect(json_body[:data][:attributes][:title]).to eq(task_params[:title])
       end
 
       it 'updates task in data base' do 
