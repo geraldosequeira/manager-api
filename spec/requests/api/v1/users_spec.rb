@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe 'Users API', type: :request do
+RSpec.describe 'Users API', type: :request do 
   let!(:user) { create(:user) }
   let(:user_id) { user.id }
   let(:headers) do
     {
-      'Accept' => 'apllication/vnd.taskmanager.v1',
+      'Accept' => 'application/vnd.taskmanager.v1',
       'Authorization' => "#{user.auth_token}",
       'Content-Type' => Mime[:json].to_s
     }

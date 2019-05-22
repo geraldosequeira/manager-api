@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Users API', type: :request do
+RSpec.describe 'Users API', type: :request do 
   let!(:user) { create(:user) }
   let(:user_id) { user.id }
   let(:headers) do
@@ -20,7 +20,7 @@ RSpec.describe 'Users API', type: :request do
 
     context 'when user exists' do 
       it "returns user" do 
-        expect(json_body[:id]).to eql(user_id) 
+        expect(json_body[:data][:id].to_i).to eql(user_id) 
       end
 
       it 'returns http status code: OK' do 
@@ -46,8 +46,8 @@ RSpec.describe 'Users API', type: :request do
     context 'when the request params are valid' do
       let(:user_params) { attributes_for(:user) }
       
-      it 'return json data for the created user' do
-        expect(json_body[:email]).to eq(user_params[:email])
+      it 'return json data for the created user' do 
+        expect(json_body[:data][:attributes][:email]).to eq(user_params[:email])
       end
 
       it 'return http status code: Created' do 
@@ -78,8 +78,8 @@ RSpec.describe 'Users API', type: :request do
     context 'when the request parms are valid' do
       let(:user_params) { { email: 'e-mail@email.org' } }
 
-      it 'returns the json data for the updated user' do
-        expect(json_body[:email]).to eq(user_params[:email]) 
+      it 'returns the json data for the updated user' do 
+        expect(json_body[:data][:attributes][:email]).to eq(user_params[:email]) 
       end
 
       it 'return http status code: OK' do 
