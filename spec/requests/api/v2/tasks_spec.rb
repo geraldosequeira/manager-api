@@ -20,8 +20,8 @@ RSpec.describe 'Tasks API', type: :request do
       get "/tasks", params: {}, headers: headers
     end
 
-    it 'returns tasks of user' do
-      expect(json_body[:tasks].count).to eq(5)
+    it 'returns tasks of user' do 
+      expect(json_body[:data].count).to eq(5)
     end
 
     it 'returns http status code: OK ' do

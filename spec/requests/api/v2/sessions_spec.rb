@@ -1,6 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe 'Sessions API', type: :request  do 
+RSpec.describe 'Sessions API', type: :request do 
+  
   before { host! 'api.taskmanager.test' }
   let(:user) { create(:user) }
   let(:headers) do
@@ -10,7 +11,7 @@ RSpec.describe 'Sessions API', type: :request  do
     }
   end
 
-  describe 'POST /sessions' do
+  describe 'POST /sessions' do 
     before do 
       post '/sessions', params: { session: credentials }.to_json, headers: headers
     end
@@ -20,7 +21,7 @@ RSpec.describe 'Sessions API', type: :request  do
 
       it 'returns the json data of the user with auth token' do
         user.reload
-        expect(json_body[:auth_token]).to eq(user.auth_token)
+        expect(json_body[:data][:attributes][:'auth-token']).to eq(user.auth_token)
       end
 
       it 'returns http status code: OK' do
