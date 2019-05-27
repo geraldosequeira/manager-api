@@ -7,6 +7,6 @@ class DeviseTokenAuthCreateUsers < ActiveRecord::Migration[5.0]
       t.text :tokens
     end
 
-    add_index :users, [:uid, :provider], unique: true
+    add_index :users, [:uid, :provider],     unique: true
   end
 end
