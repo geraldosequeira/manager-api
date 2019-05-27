@@ -38,3 +38,4 @@ gem 'active_model_serializers', '~> 0.10.0'
 gem 'ransack'
 gem 'omniauth'
 gem 'devise_token_auth' #rails g devise_token_auth:install User auth
+gem 'rack-cors'
