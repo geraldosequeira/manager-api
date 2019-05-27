@@ -36,3 +36,5 @@ gem 'bcrypt', '~> 3.1.12'
 gem 'devise'
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'ransack'
+gem 'omniauth'
+gem 'devise_token_auth' #rails g devise_token_auth:install User auth
