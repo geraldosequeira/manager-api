@@ -39,3 +39,4 @@ gem 'ransack'
 gem 'omniauth'
 gem 'devise_token_auth' #rails g devise_token_auth:install User auth
 gem 'rack-cors'
+gem 'rails-i18n', '~> 5.0.0'
