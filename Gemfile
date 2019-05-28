@@ -5,10 +5,17 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+ruby '2.4.0'
 gem 'rails', '~> 5.0.2'
-
-gem 'mysql2', '>= 0.3.18', '< 0.5'
 gem 'puma', '~> 3.0'
+
+group :development do
+  gem 'listen', '~> 3.0.5'
+  gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'spring-commands-rspec' #bundle exec spring rspec
+  gem 'mysql2', '>= 0.3.18', '< 0.5'
+end
 
 group :development, :test do
   gem 'byebug', platform: :mri
@@ -16,18 +23,15 @@ group :development, :test do
   gem "pry-rails"
 end
 
-group :development do
-  gem 'listen', '~> 3.0.5'
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'spring-commands-rspec' #bundle exec spring rspec
-end
-
 group :test do
   gem 'database_cleaner'
   gem 'shoulda-matchers', '~> 3.1'
   gem 'factory_girl_rails'
   gem 'faker'
+end
+
+group :production do 
+  gem 'pg'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
