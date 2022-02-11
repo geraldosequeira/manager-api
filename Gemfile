@@ -8,7 +8,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'rails', '~> 5.0.7'
-gem 'puma', '~> 3.0'
+gem 'puma', '~> 4.3'
 
 group :development do
   gem 'listen', '~> 3.0.5'
